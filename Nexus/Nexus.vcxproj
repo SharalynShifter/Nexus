@@ -183,7 +183,7 @@ xcopy /y "$(ProjectDir)menu.png" "$(OutDir)"</Command>
     <ClInclude Include="include\Map.h" />
     <ClInclude Include="include\Persistent.h" />
     <ClInclude Include="include\Pickable.h" />
-    <ClInclude Include="Sound.h" />
+    <ClInclude Include="include\Sound.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

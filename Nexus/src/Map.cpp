@@ -125,8 +125,8 @@ void Map::addItem(int x, int y) {
         healthPotion->pickable = new Healer(4);
         engine.actors.push(healthPotion);
     }
-    else if (dice < 25 +50) {
-
+    else if (dice < 25 +25) {
+         //damage scrolls
         int dice2 = rng->getInt(0, 100);
 
         if (dice2 <75){
@@ -149,12 +149,24 @@ void Map::addItem(int x, int y) {
 
     }
     else {
-        // create a scroll of confusion
+        int dice3 = rng->getInt(0, 100);
+
+        if (dice3 < 50){
+                // create a scroll of confusion
         Actor* scrollOfConfusion = new Actor(x, y, '#', "scroll of confusion",
             TCODColor::purple);
         scrollOfConfusion->blocks = false;
         scrollOfConfusion->pickable = new Confuser(10, 8);
         engine.actors.push(scrollOfConfusion);
+        } else
+        {
+                        // create a scroll of freeze
+        Actor* scrollOfFreeze = new Actor(x, y, '#', "scroll of freeze",
+            TCODColor::cyan);
+        scrollOfFreeze->blocks = false;
+        scrollOfFreeze->pickable = new Freeze(5, 8);
+        engine.actors.push(scrollOfFreeze);
+        } 
     }
 }
 

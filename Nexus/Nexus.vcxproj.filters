@@ -92,7 +92,7 @@
     <ClInclude Include="include\Pickable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Sound.h">
+    <ClInclude Include="include\Sound.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
