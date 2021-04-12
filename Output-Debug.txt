@@ -1,0 +1,44 @@
+﻿'UntitledRoguelikeGame.exe' (Win32): caricamento di 'C:\Users\asgne\source\repos\UntitledRoguelikeGame\x64\Debug\UntitledRoguelikeGame.exe' completato. Simboli caricati.
+'UntitledRoguelikeGame.exe' (Win32): caricamento di 'C:\Windows\System32\ntdll.dll' completato. 
+'UntitledRoguelikeGame.exe' (Win32): caricamento di 'C:\Windows\System32\kernel32.dll' completato. 
+'UntitledRoguelikeGame.exe' (Win32): caricamento di 'C:\Windows\System32\KernelBase.dll' completato. 
+'UntitledRoguelikeGame.exe' (Win32): caricamento di 'C:\Users\asgne\source\repos\UntitledRoguelikeGame\x64\Debug\libtcod.dll' completato. Simboli caricati.
+'UntitledRoguelikeGame.exe' (Win32): caricamento di 'C:\Windows\System32\vcruntime140d.dll' completato. 
+'UntitledRoguelikeGame.exe' (Win32): caricamento di 'C:\Windows\System32\ucrtbased.dll' completato. 
+'UntitledRoguelikeGame.exe' (Win32): caricamento di 'C:\Users\asgne\source\repos\UntitledRoguelikeGame\x64\Debug\SDL2.dll' completato. Modulo compilato senza simboli.
+'UntitledRoguelikeGame.exe' (Win32): caricamento di 'C:\Windows\System32\advapi32.dll' completato. 
+'UntitledRoguelikeGame.exe' (Win32): caricamento di 'C:\Windows\System32\msvcrt.dll' completato. 
+'UntitledRoguelikeGame.exe' (Win32): caricamento di 'C:\Windows\System32\sechost.dll' completato. 
+'UntitledRoguelikeGame.exe' (Win32): caricamento di 'C:\Windows\System32\rpcrt4.dll' completato. 
+'UntitledRoguelikeGame.exe' (Win32): caricamento di 'C:\Windows\System32\gdi32.dll' completato. 
+'UntitledRoguelikeGame.exe' (Win32): caricamento di 'C:\Windows\System32\win32u.dll' completato. 
+'UntitledRoguelikeGame.exe' (Win32): caricamento di 'C:\Windows\System32\gdi32full.dll' completato. 
+'UntitledRoguelikeGame.exe' (Win32): caricamento di 'C:\Windows\System32\msvcp_win.dll' completato. 
+'UntitledRoguelikeGame.exe' (Win32): caricamento di 'C:\Windows\System32\ucrtbase.dll' completato. 
+'UntitledRoguelikeGame.exe' (Win32): caricamento di 'C:\Windows\System32\user32.dll' completato. 
+'UntitledRoguelikeGame.exe' (Win32): caricamento di 'C:\Windows\System32\imm32.dll' completato. 
+'UntitledRoguelikeGame.exe' (Win32): caricamento di 'C:\Windows\System32\ole32.dll' completato. 
+'UntitledRoguelikeGame.exe' (Win32): caricamento di 'C:\Windows\System32\combase.dll' completato. 
+'UntitledRoguelikeGame.exe' (Win32): caricamento di 'C:\Windows\System32\oleaut32.dll' completato. 
+'UntitledRoguelikeGame.exe' (Win32): caricamento di 'C:\Windows\System32\shell32.dll' completato. 
+'UntitledRoguelikeGame.exe' (Win32): caricamento di 'C:\Windows\System32\version.dll' completato. 
+'UntitledRoguelikeGame.exe' (Win32): caricamento di 'C:\Windows\System32\winmm.dll' completato. 
+Il thread 0x6764 è terminato con il codice 0 (0x0).
+'UntitledRoguelikeGame.exe' (Win32): caricamento di 'C:\Windows\System32\uxtheme.dll' completato. 
+'UntitledRoguelikeGame.exe' (Win32): caricamento di 'C:\Windows\System32\SHCore.dll' completato. 
+'UntitledRoguelikeGame.exe' (Win32): caricamento di 'C:\Windows\System32\msctf.dll' completato. 
+'UntitledRoguelikeGame.exe' (Win32): caricamento di 'C:\Windows\System32\kernel.appcore.dll' completato. 
+'UntitledRoguelikeGame.exe' (Win32): caricamento di 'C:\Windows\System32\bcryptprimitives.dll' completato. 
+'UntitledRoguelikeGame.exe' (Win32): caricamento di 'C:\Windows\System32\clbcatq.dll' completato. 
+'UntitledRoguelikeGame.exe' (Win32): caricamento di 'C:\Windows\System32\TextInputFramework.dll' completato. 
+'UntitledRoguelikeGame.exe' (Win32): caricamento di 'C:\Windows\System32\CoreMessaging.dll' completato. 
+'UntitledRoguelikeGame.exe' (Win32): caricamento di 'C:\Windows\System32\CoreUIComponents.dll' completato. 
+'UntitledRoguelikeGame.exe' (Win32): caricamento di 'C:\Windows\System32\ws2_32.dll' completato. 
+'UntitledRoguelikeGame.exe' (Win32): caricamento di 'C:\Windows\System32\ntmarta.dll' completato. 
+'UntitledRoguelikeGame.exe' (Win32): caricamento di 'C:\Windows\System32\WinTypes.dll' completato. 
+'UntitledRoguelikeGame.exe' (Win32): caricamento di 'C:\Windows\System32\WinTypes.dll' completato. 
+'UntitledRoguelikeGame.exe' (Win32): scaricamento di 'C:\Windows\System32\WinTypes.dll' completato
+Il thread 0x59f4 è terminato con il codice 0 (0x0).
+Il thread 0x5c58 è terminato con il codice 0 (0x0).
+Il thread 0x47a4 è terminato con il codice 0 (0x0).
+Il programma '[24736] UntitledRoguelikeGame.exe' è terminato con il codice 0 (0x0).
