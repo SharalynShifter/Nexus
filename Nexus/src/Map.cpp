@@ -1,4 +1,5 @@
 #include "main.h"
+#include <thread>
 
 static const int ROOM_MAX_SIZE = 10;
 static const int ROOM_MIN_SIZE = 8;
@@ -116,7 +117,7 @@ void Map::addMonster(int x, int y) {
 void Map::addItem(int x, int y) {
     TCODRandom* rng = TCODRandom::getInstance();
     int dice = rng->getInt(0, 100);
-    if (dice < 70) {
+    if (dice < 25) {
         // create a health potion
         Actor* healthPotion = new Actor(x, y, '!', "health potion",
             TCODColor::violet);
@@ -124,21 +125,28 @@ void Map::addItem(int x, int y) {
         healthPotion->pickable = new Healer(4);
         engine.actors.push(healthPotion);
     }
-    else if (dice < 70 + 10) {
-        // create a scroll of lightning bolt 
+    else if (dice < 25 +50) {
+
+        int dice2 = rng->getInt(0, 100);
+
+        if (dice2 <75){
+                // create a scroll of lightning bolt 
         Actor* scrollOfLightningBolt = new Actor(x, y, '#', "scroll of lightning bolt",
             TCODColor::lightYellow);
         scrollOfLightningBolt->blocks = false;
         scrollOfLightningBolt->pickable = new LightningBolt(5, 20);
         engine.actors.push(scrollOfLightningBolt);
-    }
-    else if (dice < 70 + 10 + 10) {
-        // create a scroll of fireball
+        }
+        else
+        {
+                // create a scroll of fireball
         Actor* scrollOfFireball = new Actor(x, y, '#', "scroll of fireball",
             TCODColor::darkOrange);
         scrollOfFireball->blocks = false;
         scrollOfFireball->pickable = new Fireball(3, 12);
         engine.actors.push(scrollOfFireball);
+        }
+
     }
     else {
         // create a scroll of confusion
@@ -147,6 +155,17 @@ void Map::addItem(int x, int y) {
         scrollOfConfusion->blocks = false;
         scrollOfConfusion->pickable = new Confuser(10, 8);
         engine.actors.push(scrollOfConfusion);
+    }
+}
+
+void Map::addItemLoop(int items, int x1, int y1, int x2, int y2) {
+    while (items > 0) {
+        int x = rng->getInt(x1, x2);
+        int y = rng->getInt(y1, y2);
+        if (canWalk(x, y)) {
+            addItem(x, y);
+        }
+        items--;
     }
 }
 
@@ -174,17 +193,14 @@ void Map::createRoom(bool first, int x1, int y1, int x2, int y2, bool withActors
         }
         // add items
         int nbItems = rng->getInt(0, MAX_ROOM_ITEMS);
-        while (nbItems > 0) {
-            int x = rng->getInt(x1, x2);
-            int y = rng->getInt(y1, y2);
-            if (canWalk(x, y)) {
-                addItem(x, y);
-            }
-            nbItems--;
-        }
+        std::thread addItemThread = std::thread([this, nbItems, x1, y1, x2, y2] { this->addItemLoop(nbItems, x1, y1, x2, y2); });
+        addItemThread.join();
+
         // set stairs position
         engine.stairs->x = (x1 + x2) / 2;
         engine.stairs->y = (y1 + y2) / 2;
+
+        //addItemThread.detach();
     }
 }
 

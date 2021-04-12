@@ -80,7 +80,7 @@
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(ProjectDir)\include;$(ProjectDir)lib\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)lib;$(LibraryPath)</LibraryPath>
-    <CustomBuildAfterTargets>PreBuildEvent</CustomBuildAfterTargets>
+    <CustomBuildAfterTargets>AddAsanBinariesToCopy</CustomBuildAfterTargets>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -125,14 +125,18 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>libtcod.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>fmod_vc.lib;libtcod.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <CustomBuildStep>
-      <Command>xcopy /y "$(ProjectDir)lib\*.dll" "$(OutDir)"</Command>
+      <Command>
+      </Command>
     </CustomBuildStep>
-    <CustomBuildStep>
-      <Message>Copy DLL Files</Message>
-    </CustomBuildStep>
+    <CustomBuildStep />
+    <PreBuildEvent>
+      <Command>xcopy /y "$(ProjectDir)lib\*.dll" "$(OutDir)"
+xcopy /y "$(ProjectDir)terminal.png" "$(OutDir)"
+xcopy /y "$(ProjectDir)menu.png" "$(OutDir)"</Command>
+    </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -164,6 +168,7 @@
     <ClCompile Include="src\Map.cpp" />
     <ClCompile Include="src\Persistent.cpp" />
     <ClCompile Include="src\Pickable.cpp" />
+    <ClCompile Include="src\Sound.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Actor.h" />
@@ -178,6 +183,7 @@
     <ClInclude Include="include\Map.h" />
     <ClInclude Include="include\Persistent.h" />
     <ClInclude Include="include\Pickable.h" />
+    <ClInclude Include="Sound.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

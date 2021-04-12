@@ -50,6 +50,14 @@ void Gui::render() {
 	renderBar(1, 1, BAR_WIDTH, "HP", engine.player->destructible->hp,
 		engine.player->destructible->maxHp,
 		TCODColor::lightRed, TCODColor::darkerRed);
+
+	// draw the mana bar
+	if (engine.player->destructible->maxMana > 0) {
+		renderBar(1, 6, BAR_WIDTH, "MANA", engine.player->destructible->mana,
+			engine.player->destructible->maxMana,
+			TCODColor::lightBlue, TCODColor::darkerBlue);
+	}
+
 	//draw the XP bar
 	PlayerAi* ai = (PlayerAi*)engine.player->ai;
 	char xpTxt[128];

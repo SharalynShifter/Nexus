@@ -29,6 +29,13 @@ public:
 	void save(TCODZip& zip);
 };
 
+class Fireball : public LightningBolt {
+public:
+	Fireball(float range, float damage);
+	bool use(Actor* owner, Actor* wearer);
+	void save(TCODZip& zip);
+};
+
 class Confuser : public Pickable {
 public:
 	int nbTurns;
@@ -39,10 +46,12 @@ public:
 	void save(TCODZip& zip);
 };
 
-class Fireball : public LightningBolt {
+class Freeze : public Confuser {
 public:
-	Fireball(float range, float damage);
+	Freeze(int nbTurns, float range);
 	bool use(Actor* owner, Actor* wearer);
 	void save(TCODZip& zip);
 };
+
+
 

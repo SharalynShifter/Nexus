@@ -4,7 +4,7 @@ public:
 	static Ai* create(TCODZip& zip);
 protected:
 	enum AiType {
-		MONSTER,CONFUSED_MONSTER,PLAYER
+		MONSTER,CONFUSED_MONSTER,PLAYER,FROZEN_MONSTER
 	};
 };
 
@@ -25,6 +25,15 @@ public:
 	ConfusedMonsterAi(int nbTurns, Ai* oldAi);
 	void update(Actor* owner);
 	void load(TCODZip& zip);
+	void save(TCODZip& zip);
+protected:
+	int nbTurns;
+	Ai* oldAi;
+};
+
+class FrozenMonsterAi : public ConfusedMonsterAi {
+	FrozenMonsterAi(int nbTurns, Ai* oldAi);
+	void update(Actor* owner);
 	void save(TCODZip& zip);
 protected:
 	int nbTurns;

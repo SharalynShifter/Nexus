@@ -1,4 +1,5 @@
 #include "libtcod.hpp"
+#include "Sound.h"
 class Actor;
 #include "Persistent.h"
 #include "Destructible.h"

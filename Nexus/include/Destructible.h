@@ -2,6 +2,8 @@ class Destructible : public Persistent {
 public:
 	float maxHp; // maximum health points
 	float hp; // current health points
+	float maxMana;
+	float mana;
 	float defense; // hit points deflected
 	const char* corpseName; // the actor's name once dead/destroyed
 

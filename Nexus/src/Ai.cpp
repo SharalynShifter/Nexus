@@ -113,6 +113,31 @@ void ConfusedMonsterAi::update(Actor* owner) {
 		delete this;
 	}
 }
+
+FrozenMonsterAi::FrozenMonsterAi(int nbTurns, Ai* oldai) : ConfusedMonsterAi(nbTurns, oldai) {
+
+}
+
+void FrozenMonsterAi::update(Actor* owner) {
+	if (owner->destructible->isDead()) {
+		nbTurns = 1;
+	}
+	else {
+		engine.gui->message(TCODColor::cyan, "The %s is frozen solid", owner->name);
+	}
+	nbTurns--;
+	if (nbTurns == 0) {
+		owner->ai = oldAi;
+		delete this;
+	}
+}
+
+void FrozenMonsterAi::save(TCODZip &zip){
+	zip.putInt(FROZEN_MONSTER);
+	zip.putInt(nbTurns);
+	oldAi->save(zip);
+}
+
 PlayerAi::PlayerAi() : xpLevel(1) {
 }
 
