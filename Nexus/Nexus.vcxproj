@@ -78,7 +78,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(ProjectDir)include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)lib\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)lib;$(LibraryPath)</LibraryPath>
     <CustomBuildAfterTargets>PreBuildEvent</CustomBuildAfterTargets>
   </PropertyGroup>
@@ -165,18 +165,18 @@
     <ClCompile Include="src\Pickable.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Actor.h" />
-    <ClInclude Include="src\Ai.h" />
-    <ClInclude Include="src\Attacker.h" />
-    <ClInclude Include="src\Container.h" />
-    <ClInclude Include="src\Destructible.h" />
-    <ClInclude Include="src\Empty.h" />
-    <ClInclude Include="src\Engine.h" />
-    <ClInclude Include="src\Gui.h" />
-    <ClInclude Include="src\Main.h" />
-    <ClInclude Include="src\Map.h" />
-    <ClInclude Include="src\Persistent.h" />
-    <ClInclude Include="src\Pickable.h" />
+    <ClInclude Include="include\Actor.h" />
+    <ClInclude Include="include\Ai.h" />
+    <ClInclude Include="include\Attacker.h" />
+    <ClInclude Include="include\Container.h" />
+    <ClInclude Include="include\Destructible.h" />
+    <ClInclude Include="include\Empty.h" />
+    <ClInclude Include="include\Engine.h" />
+    <ClInclude Include="include\Gui.h" />
+    <ClInclude Include="include\Main.h" />
+    <ClInclude Include="include\Map.h" />
+    <ClInclude Include="include\Persistent.h" />
+    <ClInclude Include="include\Pickable.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ezAL\ezAL.vcxproj">
