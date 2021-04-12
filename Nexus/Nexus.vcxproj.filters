@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\Ai.cpp" />
+    <ClCompile Include="src\Attacker.cpp" />
+    <ClCompile Include="src\Container.cpp" />
+    <ClCompile Include="src\Destructible.cpp" />
+    <ClCompile Include="src\Empty.cpp" />
+    <ClCompile Include="src\Engine.cpp" />
+    <ClCompile Include="src\Gui.cpp" />
+    <ClCompile Include="src\Main.cpp" />
+    <ClCompile Include="src\Map.cpp" />
+    <ClCompile Include="src\Persistent.cpp" />
+    <ClCompile Include="src\Pickable.cpp" />
+    <ClCompile Include="src\Actor.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Actor.h" />
+    <ClInclude Include="include\Ai.h" />
+    <ClInclude Include="include\Attacker.h" />
+    <ClInclude Include="include\Container.h" />
+    <ClInclude Include="include\Destructible.h" />
+    <ClInclude Include="include\Empty.h" />
+    <ClInclude Include="include\Engine.h" />
+    <ClInclude Include="include\Gui.h" />
+    <ClInclude Include="include\Main.h" />
+    <ClInclude Include="include\Map.h" />
+    <ClInclude Include="include\Persistent.h" />
+    <ClInclude Include="include\Pickable.h" />
+  </ItemGroup>
+</Project>
