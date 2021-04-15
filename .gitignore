@@ -24,11 +24,13 @@ game.sav
 
 # Debugger Files
 *.pdb
+!Nexus/lib/*.pdb
 
 # Compiled Dynamic libraries
 *.so
 *.dylib
 *.dll
+!Nexus/lib/*.dll
 
 # Fortran module files
 *.mod
@@ -39,6 +41,7 @@ game.sav
 *.la
 *.a
 *.lib
+!Nexus/lib/*.lib
 
 # Executables
 *.exe
