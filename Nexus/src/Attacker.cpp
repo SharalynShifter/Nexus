@@ -22,11 +22,3 @@ void Attacker::attack(Actor* owner, Actor* target) {
 			"%s attacks %s in vain.", owner->name, target->name);
 	}
 }
-
-void Attacker::load(TCODZip& zip) {
-	power = zip.getFloat();
-}
-
-void Attacker::save(TCODZip& zip) {
-	zip.putFloat(power);
-}

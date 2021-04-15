@@ -55,28 +55,8 @@ void Destructible::die(Actor* owner) {
 	engine.sendToBack(owner);
 }
 
-void Destructible::load(TCODZip& zip) {
-	maxHp = zip.getFloat();
-	hp = zip.getFloat();
-	defense = zip.getFloat();
-	corpseName = strdup(zip.getString());
-	xp = zip.getInt();
-}
-
-void Destructible::save(TCODZip& zip) {
-	zip.putFloat(maxHp);
-	zip.putFloat(hp);
-	zip.putFloat(defense);
-	zip.putString(corpseName);
-	zip.putInt(xp);
-}
 MonsterDestructible::MonsterDestructible(float maxHp, float defense, const char* corpseName,int xp) :
 	Destructible(maxHp, defense, corpseName,xp) {
-}
-
-void MonsterDestructible::save(TCODZip& zip) {
-	zip.putInt(MONSTER);
-	Destructible::save(zip);
 }
 
 void MonsterDestructible::die(Actor* owner) {
@@ -89,15 +69,4 @@ void MonsterDestructible::die(Actor* owner) {
 
 PlayerDestructible::PlayerDestructible(float maxHp, float defense, const char* corpseName) :
 	Destructible(maxHp, defense, corpseName, 0) {
-}
-
-void PlayerDestructible::save(TCODZip& zip) {
-	zip.putInt(PLAYER);
-	Destructible::save(zip);
-}
-
-void PlayerDestructible::die(Actor* owner) {
-	engine.gui->message(TCODColor::red, "You died!");
-	Destructible::die(owner);
-	engine.gameStatus = Engine::DEFEAT;
 }

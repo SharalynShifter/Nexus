@@ -58,15 +58,6 @@ bool Healer::use(Actor* owner, Actor* wearer) {
 	return false;
 }
 
-void Healer::load(TCODZip& zip) {
-	amount = zip.getFloat();
-}
-
-void Healer::save(TCODZip& zip) {
-	zip.putInt(HEALER);
-	zip.putFloat(amount);
-}
-
 LightningBolt::LightningBolt(float range, float damage)
 	: range(range), damage(damage) {
 }
@@ -85,18 +76,6 @@ bool LightningBolt::use(Actor* owner, Actor* wearer) {
 	closestMonster->destructible->takeDamage(closestMonster, damage);
 	return Pickable::use(owner, wearer);
 }
-
-void LightningBolt::load(TCODZip& zip) {
-	range = zip.getFloat();
-	damage = zip.getFloat();
-}
-
-void LightningBolt::save(TCODZip& zip) {
-	zip.putInt(LIGHTNING_BOLT);
-	zip.putFloat(range);
-	zip.putFloat(damage);
-}
-
 
 Confuser::Confuser(int nbTurns, float range)
 	: nbTurns(nbTurns), range(range) {
@@ -121,17 +100,6 @@ bool Confuser::use(Actor* owner, Actor* wearer) {
 	return Pickable::use(owner, wearer);
 }
 
-void Confuser::load(TCODZip& zip) {
-	nbTurns = zip.getInt();
-	range = zip.getFloat();
-}
-
-void Confuser::save(TCODZip& zip) {
-	zip.putInt(CONFUSER);
-	zip.putInt(nbTurns);
-	zip.putFloat(range);
-}
-
 Freeze::Freeze(int nbTurns, float range) : Confuser(nbTurns, range) {}
 
 bool Freeze::use(Actor* owner, Actor* wearer) {
@@ -151,12 +119,6 @@ bool Freeze::use(Actor* owner, Actor* wearer) {
 	engine.gui->message(TCODColor::lightBlue, "The %s gets frozen solid",
 		actor->name);
 	return Pickable::use(owner, wearer);
-}
-
-void Freeze::save(TCODZip& zip) {
-	zip.putInt(FREEZE);
-	zip.putInt(nbTurns);
-	zip.putFloat(range);
 }
 
 Fireball::Fireball(float range, float damage)
@@ -182,10 +144,4 @@ bool Fireball::use(Actor* owner, Actor* wearer) {
 		}
 	}
 	return Pickable::use(owner, wearer);
-}
-
-void Fireball::save(TCODZip& zip) {
-	zip.putInt(FIREBALL);
-	zip.putFloat(range);
-	zip.putFloat(damage);
 }

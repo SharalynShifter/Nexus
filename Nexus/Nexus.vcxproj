@@ -133,7 +133,7 @@
     </CustomBuildStep>
     <CustomBuildStep />
     <PreBuildEvent>
-      <Command>xcopy /y "$(ProjectDir)lib\*.dll" "$(OutDir)"
+      <Command>xcopy /y "$(SolutionDir)lib\*.dll" "$(OutDir)"
 xcopy /y "$(ProjectDir)terminal.png" "$(OutDir)"
 xcopy /y "$(ProjectDir)menu.png" "$(OutDir)"</Command>
     </PreBuildEvent>
@@ -184,11 +184,18 @@ xcopy /y "$(ProjectDir)menu.png" "$(OutDir)"</Command>
     <ClInclude Include="include\Persistent.h" />
     <ClInclude Include="include\Pickable.h" />
     <ClInclude Include="include\Sound.h" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Nexus-Utils\Nexus-Utils.vcxproj">
       <Project>{85c308e2-d1bc-4bef-a51f-c3537f3cddd4}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Nexus.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="icon.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

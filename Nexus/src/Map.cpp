@@ -54,21 +54,6 @@ void Map::init(bool withActors) {
     bsp.traverseInvertedLevelOrder(&listener, (void*)withActors);
 }
 
-void Map::save(TCODZip& zip) {
-    zip.putInt(seed);
-    for (int i = 0; i < width * height; i++) {
-        zip.putInt(tiles[i].explored);
-    }
-}
-
-void Map::load(TCODZip& zip) {
-    seed = zip.getInt();
-    init(false);
-    for (int i = 0; i < width * height; i++) {
-        tiles[i].explored = zip.getInt();
-    }
-}
-
 Map::~Map() {
     delete[] tiles;
     delete map;

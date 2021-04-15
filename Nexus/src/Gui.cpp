@@ -14,24 +14,6 @@ Gui::Gui() {
 	con = new TCODConsole(engine.screenWidth, PANEL_HEIGHT);
 }
 
-void Gui::load(TCODZip& zip) {
-	int nbMessages = zip.getInt();
-	while (nbMessages > 0) {
-		const char* text = zip.getString();
-		TCODColor col = zip.getColor();
-		message(col, text);
-		nbMessages--;
-	}
-}
-
-void Gui::save(TCODZip& zip) {
-	zip.putInt(log.size());
-	for (Message** it = log.begin(); it != log.end(); it++) {
-		zip.putString((*it)->text);
-		zip.putColor(&(*it)->col);
-	}
-}
-
 Gui::~Gui() {
 	delete con;
 	clear();

@@ -22,15 +22,6 @@ Ai* Ai::create(TCODZip& zip) {
 MonsterAi::MonsterAi() : moveCount(0) {
 }
 
-void MonsterAi::load(TCODZip& zip) {
-	moveCount = zip.getInt();
-}
-
-void MonsterAi::save(TCODZip& zip) {
-	zip.putInt(MONSTER);
-	zip.putInt(moveCount);
-}
-
 void MonsterAi::update(Actor* owner) {
 	if (owner->destructible && owner->destructible->isDead()) {
 		return;
@@ -74,17 +65,6 @@ void MonsterAi::moveOrAttack(Actor* owner, int targetx, int targety) {
 
 ConfusedMonsterAi::ConfusedMonsterAi(int nbTurns, Ai* oldAi)
 	: nbTurns(nbTurns), oldAi(oldAi) {
-}
-
-void ConfusedMonsterAi::load(TCODZip& zip) {
-	nbTurns = zip.getInt();
-	oldAi = Ai::create(zip);
-}
-
-void ConfusedMonsterAi::save(TCODZip& zip) {
-	zip.putInt(CONFUSED_MONSTER);
-	zip.putInt(nbTurns);
-	oldAi->save(zip);
 }
 
 void ConfusedMonsterAi::update(Actor* owner) {
@@ -131,12 +111,6 @@ void FrozenMonsterAi::update(Actor* owner) {
 		owner->ai = oldAi;
 		delete this;
 	}
-}
-
-void FrozenMonsterAi::save(TCODZip &zip){
-	zip.putInt(FROZEN_MONSTER);
-	zip.putInt(nbTurns);
-	oldAi->save(zip);
 }
 
 PlayerAi::PlayerAi() : xpLevel(1) {
@@ -194,16 +168,6 @@ void PlayerAi::update(Actor* owner) {
 		}
 	}
 }
-
-void PlayerAi::load(TCODZip& zip) {
-	xpLevel = zip.getInt();
-}
-
-void PlayerAi::save(TCODZip& zip) {
-	zip.putInt(PLAYER);
-	zip.putInt(xpLevel);
-}
-
 
 bool PlayerAi::moveOrAttack(Actor* owner, int targetx, int targety) {
 	if (engine.map->isWall(targetx, targety)) return false;
