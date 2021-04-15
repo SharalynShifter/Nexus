@@ -16,6 +16,7 @@ Pickable* Pickable::create(TCODZip& zip) {
 	case LIGHTNING_BOLT: pickable = new LightningBolt(0, 0); break;
 	case CONFUSER: pickable = new Confuser(0, 0); break;
 	case FIREBALL: pickable = new Fireball(0, 0); break;
+	case FREEZE: pickable = new Freeze(0, 0); break;
 	}
 	pickable->load(zip);
 	return pickable;
@@ -127,6 +128,33 @@ void Confuser::load(TCODZip& zip) {
 
 void Confuser::save(TCODZip& zip) {
 	zip.putInt(CONFUSER);
+	zip.putInt(nbTurns);
+	zip.putFloat(range);
+}
+
+Freeze::Freeze(int nbTurns, float range) : Confuser(nbTurns, range) {}
+
+bool Freeze::use(Actor* owner, Actor* wearer) {
+	engine.gui->message(TCODColor::cyan, "Left-click an enemy to freeze it,\nor right-click to cancel.");
+	int x, y;
+	if (!engine.pickATile(&x, &y, range)) {
+		return false;
+	}
+
+	Actor* actor = engine.getActor(x, y);
+	if (!actor) {
+		return false;
+	}
+	// confuse the monster for <nbTurns> turns
+	Ai* frozenAi = new FrozenMonsterAi(nbTurns, actor->ai);
+	actor->ai = frozenAi;
+	engine.gui->message(TCODColor::lightBlue, "The %s gets frozen solid",
+		actor->name);
+	return Pickable::use(owner, wearer);
+}
+
+void Freeze::save(TCODZip& zip) {
+	zip.putInt(FREEZE);
 	zip.putInt(nbTurns);
 	zip.putFloat(range);
 }

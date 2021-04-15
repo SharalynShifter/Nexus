@@ -6,7 +6,7 @@ public:
 	static Pickable* create(TCODZip& zip);
 protected:
 	enum PickableType {
-		HEALER,LIGHTNING_BOLT,CONFUSER,FIREBALL
+		HEALER,LIGHTNING_BOLT,CONFUSER,FIREBALL,FREEZE
 	};
 };
 

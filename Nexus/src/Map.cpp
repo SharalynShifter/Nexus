@@ -1,7 +1,7 @@
 #include "main.h"
 #include <thread>
 
-static const int ROOM_MAX_SIZE = 10;
+static const int ROOM_MAX_SIZE = 20;
 static const int ROOM_MIN_SIZE = 8;
 static const int MAX_ROOM_MONSTERS = 3;
 static const int MAX_ROOM_ITEMS = 2;
@@ -126,7 +126,7 @@ void Map::addItem(int x, int y) {
         engine.actors.push(healthPotion);
     }
     else if (dice < 25 +25) {
-         //damage scrolls
+         //damaging scrolls
         int dice2 = rng->getInt(0, 100);
 
         if (dice2 <75){
@@ -164,7 +164,7 @@ void Map::addItem(int x, int y) {
         Actor* scrollOfFreeze = new Actor(x, y, '#', "scroll of freeze",
             TCODColor::cyan);
         scrollOfFreeze->blocks = false;
-        scrollOfFreeze->pickable = new Freeze(5, 8);
+        scrollOfFreeze->pickable = new Freeze(5, 3);
         engine.actors.push(scrollOfFreeze);
         } 
     }

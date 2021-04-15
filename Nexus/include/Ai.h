@@ -26,18 +26,15 @@ public:
 	void update(Actor* owner);
 	void load(TCODZip& zip);
 	void save(TCODZip& zip);
-protected:
 	int nbTurns;
 	Ai* oldAi;
 };
 
 class FrozenMonsterAi : public ConfusedMonsterAi {
+public:
 	FrozenMonsterAi(int nbTurns, Ai* oldAi);
 	void update(Actor* owner);
 	void save(TCODZip& zip);
-protected:
-	int nbTurns;
-	Ai* oldAi;
 };
 
 class PlayerAi : public Ai {

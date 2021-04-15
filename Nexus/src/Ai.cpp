@@ -13,6 +13,7 @@ Ai* Ai::create(TCODZip& zip) {
 	case PLAYER: ai = new PlayerAi(); break;
 	case MONSTER: ai = new MonsterAi(); break;
 	case CONFUSED_MONSTER: ai = new ConfusedMonsterAi(0, NULL); break;
+	case FROZEN_MONSTER: ai = new FrozenMonsterAi(0, NULL); break;
 	}
 	ai->load(zip);
 	return ai;
@@ -114,7 +115,7 @@ void ConfusedMonsterAi::update(Actor* owner) {
 	}
 }
 
-FrozenMonsterAi::FrozenMonsterAi(int nbTurns, Ai* oldai) : ConfusedMonsterAi(nbTurns, oldai) {
+FrozenMonsterAi::FrozenMonsterAi(int nbTurns, Ai* oldAi) : ConfusedMonsterAi (nbTurns, oldAi){
 
 }
 
