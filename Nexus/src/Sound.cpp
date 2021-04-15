@@ -76,10 +76,15 @@ void Sound::unload(void) {
 	}
 }
 
-void Sound::play(bool pause) {
+void Sound::play(bool pause, bool loop) {
 	if (possible && running) {
 		result = fmodsys->playSound(sound, 0, pause, &channel);
-		channel->setMode(FMOD_LOOP_OFF);
+		if (loop) {
+			channel->setMode(FMOD_LOOP_NORMAL);
+		}
+		else {
+			channel->setMode(FMOD_LOOP_OFF);
+		}
 	}
 }
 

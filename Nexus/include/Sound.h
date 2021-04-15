@@ -20,7 +20,7 @@ public:
 	static void setPitch(float p);
 	static void load(const char* file);
 	static void unload(void);
-	static void play(bool pause = false);
+	static void play(bool pause = false, bool loop = false);
 	
 	static bool getSound(void);
 
